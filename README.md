@@ -379,7 +379,13 @@ Below code handles the portrait and landscape feature of the app, top we have th
                                         children: [
                                           Expanded(
                                               flex: 3,
-                                              child: TextField(
+                                              child: 
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              (
                                                 controller: _controllerComment,
                                                 keyboardType:
                                                 TextInputType
@@ -1180,6 +1186,7 @@ Below code handles the portrait and landscape feature of the app, top we have th
 
 
 ```
+Based on the above code, when user input value inside the ```TextField``` and click on send button there is ``` onTap: ``` that add every input value to the list of comment with ```  data.add(_controllerComment.text.toString()); ``` and display the new comment immediately on the list of comments.
 
 Below handles the emoji picker and it is been used in the app body:
 
