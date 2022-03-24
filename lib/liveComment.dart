@@ -3083,6 +3083,26 @@ List avatars = ["assets/avatar2.png","assets/avatar3.png","assets/avatar4.png","
                                   SizedBox(
                                     height: 8.0,
                                   ),
+
+                                  InkWell(
+                                      onTap: (){
+                                        avatars.shuffle();
+                                        names.shuffle();
+
+                                      },
+                                      child: Container(
+                                        // padding: EdgeInsets.all(5),
+                                          child: Align(
+                                              alignment: Alignment.center,
+                                              child: Flexible(
+                                                  child: Icon(
+                                                    Icons.shuffle,
+                                                    size: 25,
+                                                    color: Colors.white,
+                                                  ))))),
+                                  SizedBox(
+                                    height: 5.0,
+                                  ),
                                   Padding(
                                       padding: EdgeInsets.only(
                                           bottom: MediaQuery.of(
@@ -3499,13 +3519,11 @@ List avatars = ["assets/avatar2.png","assets/avatar3.png","assets/avatar4.png","
                                                                     EdgeInsets.all(3),
                                                                     child: Image
                                                                         .asset(
-                                                                      "assets/person_icon.png",
+                                                                      "assets/avatar1.png",
                                                                       height:
                                                                       25,
                                                                       width:
                                                                       25,
-                                                                      color:
-                                                                      Colors.black,
                                                                     ),
                                                                   )),
                                                               Flexible(
@@ -3564,13 +3582,11 @@ List avatars = ["assets/avatar2.png","assets/avatar3.png","assets/avatar4.png","
                                                                         EdgeInsets.all(3),
                                                                         child: Image
                                                                             .asset(
-                                                                          "assets/person_icon.png",
+                                                                          data[index].avatar,
                                                                           height:
                                                                           25,
                                                                           width:
                                                                           25,
-                                                                          color:
-                                                                          Colors.black,
                                                                         ),
                                                                       )),
                                                                   Flexible(
@@ -3598,6 +3614,7 @@ List avatars = ["assets/avatar2.png","assets/avatar3.png","assets/avatar4.png","
                                                                                   )),
                                                                             ],
                                                                           )))
+
                                                                 ],
                                                               )))))
                                           );
@@ -3625,6 +3642,25 @@ List avatars = ["assets/avatar2.png","assets/avatar3.png","assets/avatar4.png","
                                                           SizedBox(
                                                             height: 8.0,
                                                           ),
+                                                          InkWell(
+                                                              onTap: (){
+                                                                avatars.shuffle();
+                                                                names.shuffle();
+
+                                                              },
+                                                              child: Container(
+                                                                // padding: EdgeInsets.all(5),
+                                                                  child: Align(
+                                                                      alignment: Alignment.center,
+                                                                      child: Flexible(
+                                                                          child: Icon(
+                                                                            Icons.shuffle,
+                                                                            size: 25,
+                                                                            color: Colors.white,
+                                                                          ))))),
+                                                          SizedBox(
+                                                            height: 5.0,
+                                                          ),
                                                           Padding(
                                                               padding: EdgeInsets.only(
                                                                   bottom: MediaQuery.of(
@@ -3633,6 +3669,7 @@ List avatars = ["assets/avatar2.png","assets/avatar3.png","assets/avatar4.png","
                                                                       .bottom),
                                                               child: Row(
                                                                 children: [
+
                                                                   Expanded(
                                                                       flex: 3,
                                                                       child: TextField(
@@ -3714,7 +3751,7 @@ List avatars = ["assets/avatar2.png","assets/avatar3.png","assets/avatar4.png","
                                                                 onTap: () {
 
                                                                   if(_controllerComment.text.toString()!=""){
-                                                                    data.add(UserWithComment(_controllerComment.text, _controllerComment.text.toString(),avatars[0].toString()));
+                                                                    data.add(UserWithComment( names[0].toString(),_controllerComment.text,avatars[1].toString()));
 
                                                                     Navigator.pop(context);
                                                                     _controllerComment.clear();
