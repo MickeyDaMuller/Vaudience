@@ -6,7 +6,8 @@ ABOUT THIS PROJECT:
 This project is a frontend development of a video stream with instant chat posting on the UI. This project is development with Flutter and developed for portriat and landscape.
 Below is the screenshot of the final look of this project:
 
-![20220323_120747](https://user-images.githubusercontent.com/39952685/159652638-18cc5ad2-d64a-4e94-87b2-bb9f3d7ab70e.gif)
+![20220324_141818](https://user-images.githubusercontent.com/39952685/159895174-f51c73a8-265e-4b94-ae90-20f042afec78.gif)
+
 
 
 ![Screenshot_20220323-113000](https://user-images.githubusercontent.com/39952685/159647224-ba779cf1-710f-471f-8b34-dd44634d4002.jpg)
