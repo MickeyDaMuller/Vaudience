@@ -8,14 +8,15 @@ Below is the screenshot of the final look of this project:
 
 ![20220324_141818](https://user-images.githubusercontent.com/39952685/159895174-f51c73a8-265e-4b94-ae90-20f042afec78.gif)
 
+![ezgif com-gif-maker](https://user-images.githubusercontent.com/39952685/159899435-cdbd1c37-fcaf-40ab-8b37-3511c4df4f4b.gif)
 
 
-![Screenshot_20220323-113000](https://user-images.githubusercontent.com/39952685/159647224-ba779cf1-710f-471f-8b34-dd44634d4002.jpg)
-![Screenshot_20220323-113013](https://user-images.githubusercontent.com/39952685/159647227-1a6ba8f3-305b-44aa-b174-fc816b117eff.jpg)
-![Screenshot_20220323-112904](https://user-images.githubusercontent.com/39952685/159647233-910dd3d5-3899-4ba5-9413-65fac24d1f4a.jpg)
-![Screenshot_20220323-113052](https://user-images.githubusercontent.com/39952685/159647236-11427048-078e-4616-b481-6a104cea5dbd.jpg)
-![Screenshot_20220323-113037](https://user-images.githubusercontent.com/39952685/159647238-512a3906-7a4e-485d-a330-337197febc94.jpg)
-
+![Screenshot_20220324-142758](https://user-images.githubusercontent.com/39952685/159897371-38810f5e-84ec-4d5d-ba35-6e35e7a15dd2.jpg)
+![Screenshot_20220324-142807](https://user-images.githubusercontent.com/39952685/159897389-44cf5536-d4d5-4f57-ae5a-64483292a43e.jpg)
+![Screenshot_20220324-142814](https://user-images.githubusercontent.com/39952685/159897391-8669722d-b4e0-4296-93b9-37bace13517a.jpg)
+![Screenshot_20220324-142822](https://user-images.githubusercontent.com/39952685/159897400-09718fe8-26d2-4893-b9ca-cc67016dd1c9.jpg)
+![Screenshot_20220324-142843](https://user-images.githubusercontent.com/39952685/159897404-fbf30be1-b801-4170-a6b4-de2a3a987bb9.jpg)
+![Screenshot_20220324-142851](https://user-images.githubusercontent.com/39952685/159897407-05402987-fb63-4755-ac18-3e6e86e491b8.jpg)
 
 Inside liveStream.dart I have video called at the initial state of launching the app, appbar with logo of the application. In the app body is an if statement that check the orientation of device which is portrait and landscape format. When the app is in portrait format it display the autoplay video with play and pause button to control the video. Below this video is the title of the video, list of comment, shuffle button and add comment form.
 
@@ -97,9 +98,7 @@ Handling videoplayer controller when app is disposed:
 Below code handles the portrait and landscape feature of the app, top we have the appbar, follow by the app body, then the if statement to handle the app orientation:
 
 ```
-
-
-  @override
+ @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: PreferredSize(
@@ -202,11 +201,13 @@ Below code handles the portrait and landscape feature of the app, top we have th
                                         fontWeight:
                                         FontWeight.bold),
                                   )))),
+
                       Spacer(),
                       InkWell(
                           onTap: (){
 
-
+                            avatars.shuffle();
+                            names.shuffle();
 
                           },
                           child:Container(
@@ -216,7 +217,7 @@ Below code handles the portrait and landscape feature of the app, top we have th
                                   child: Flexible(
                                       child: Icon(
                                         Icons.shuffle,
-                                        size: 20,
+                                        size: 25,
                                       ))))),
                     ],
                   )),
@@ -242,13 +243,11 @@ Below code handles the portrait and landscape feature of the app, top we have th
                                             EdgeInsets.all(3),
                                             child: Image
                                                 .asset(
-                                              "assets/person_icon.png",
+                                              "assets/avatar1.png",
                                               height:
                                               25,
                                               width:
                                               25,
-                                              color:
-                                              Colors.black,
                                             ),
                                           )),
                                       Flexible(
@@ -280,6 +279,8 @@ Below code handles the portrait and landscape feature of the app, top we have th
                                   )))))
               ),
 
+              SizedBox(height: 15,),
+
               Expanded(child: ListView.separated(
                 separatorBuilder: (context, index) => Divider(
                   color: Colors.white,
@@ -308,13 +309,11 @@ Below code handles the portrait and landscape feature of the app, top we have th
                                               EdgeInsets.all(3),
                                               child: Image
                                                   .asset(
-                                                "assets/person_icon.png",
+                                                data[index].avatar,
                                                 height:
                                                 25,
                                                 width:
                                                 25,
-                                                color:
-                                                Colors.black,
                                               ),
                                             )),
                                         Flexible(
@@ -329,13 +328,13 @@ Below code handles the portrait and landscape feature of the app, top we have th
                                                     Container(
                                                       // padding: EdgeInsets.all(5),
                                                         child: Text(
-                                                          "User Name",
+                                                          data[index].username,
                                                           style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
                                                         )),
                                                     Container(
                                                       //   padding: EdgeInsets.all(5),
                                                         child: Text(
-                                                          data[index],
+                                                          data[index].comment,
                                                           style: TextStyle(color: Colors.grey),
                                                           textAlign: TextAlign.start,
                                                           textDirection: TextDirection.ltr,
@@ -370,6 +369,26 @@ Below code handles the portrait and landscape feature of the app, top we have th
                                   SizedBox(
                                     height: 8.0,
                                   ),
+
+                                  InkWell(
+                                      onTap: (){
+                                        avatars.shuffle();
+                                        names.shuffle();
+
+                                      },
+                                      child: Container(
+                                        // padding: EdgeInsets.all(5),
+                                          child: Align(
+                                              alignment: Alignment.center,
+                                              child: Flexible(
+                                                  child: Icon(
+                                                    Icons.shuffle,
+                                                    size: 25,
+                                                    color: Colors.white,
+                                                  ))))),
+                                  SizedBox(
+                                    height: 5.0,
+                                  ),
                                   Padding(
                                       padding: EdgeInsets.only(
                                           bottom: MediaQuery.of(
@@ -380,13 +399,7 @@ Below code handles the portrait and landscape feature of the app, top we have th
                                         children: [
                                           Expanded(
                                               flex: 3,
-                                              child: 
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              (
+                                              child: TextField(
                                                 controller: _controllerComment,
                                                 keyboardType:
                                                 TextInputType
@@ -456,7 +469,6 @@ Below code handles the portrait and landscape feature of the app, top we have th
                                                       'Montserrat'),
                                                 ),
                                                 autofocus: true,
-                                                //controller: _newMediaLinkAddressController,
                                               )),
                                           SizedBox(
                                             width: 5,
@@ -464,8 +476,9 @@ Below code handles the portrait and landscape feature of the app, top we have th
                                           InkWell(
                                               onTap: () {
                                                 if(_controllerComment.text.toString()!=""){
-                                                data.add(_controllerComment.text.toString());
-                                                Navigator.pop(context);
+                                                 data.add(UserWithComment( names[0].toString(),_controllerComment.text,avatars[1].toString()));
+
+                                                  Navigator.pop(context);
                                                 _controllerComment.clear();
                                                 }else{
                                                   Navigator.pop(context);
@@ -753,15 +766,21 @@ Below code handles the portrait and landscape feature of the app, top we have th
                                                                 FontWeight.bold),
                                                           )))),
                                               Spacer(),
-                                              Container(
+                                             InkWell(
+                                                 onTap: (){
+                                                   avatars.shuffle();
+                                                   names.shuffle();
+
+                                                 },
+                                                 child: Container(
                                                 // padding: EdgeInsets.all(5),
                                                   child: Align(
                                                       alignment: Alignment.center,
                                                       child: Flexible(
                                                           child: Icon(
                                                             Icons.shuffle,
-                                                            size: 20,
-                                                          )))),
+                                                            size: 25,
+                                                          ))))),
                                             ],
                                           )),
                                       Card(
@@ -786,13 +805,11 @@ Below code handles the portrait and landscape feature of the app, top we have th
                                                                     EdgeInsets.all(3),
                                                                     child: Image
                                                                         .asset(
-                                                                      "assets/person_icon.png",
+                                                                      "assets/avatar1.png",
                                                                       height:
                                                                       25,
                                                                       width:
                                                                       25,
-                                                                      color:
-                                                                      Colors.black,
                                                                     ),
                                                                   )),
                                                               Flexible(
@@ -851,13 +868,11 @@ Below code handles the portrait and landscape feature of the app, top we have th
                                                                         EdgeInsets.all(3),
                                                                         child: Image
                                                                             .asset(
-                                                                          "assets/person_icon.png",
+                                                                          data[index].avatar,
                                                                           height:
                                                                           25,
                                                                           width:
                                                                           25,
-                                                                          color:
-                                                                          Colors.black,
                                                                         ),
                                                                       )),
                                                                   Flexible(
@@ -872,19 +887,20 @@ Below code handles the portrait and landscape feature of the app, top we have th
                                                                               Container(
                                                                                 // padding: EdgeInsets.all(5),
                                                                                   child: Text(
-                                                                                    "User Name",
+                                                                                    data[index].username,
                                                                                     style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
                                                                                   )),
                                                                               Container(
                                                                                 //   padding: EdgeInsets.all(5),
                                                                                   child: Text(
-                                                                                    data[index],
+                                                                                    data[index].comment,
                                                                                     style: TextStyle(color: Colors.grey),
                                                                                     textAlign: TextAlign.start,
                                                                                     textDirection: TextDirection.ltr,
                                                                                   )),
                                                                             ],
                                                                           )))
+
                                                                 ],
                                                               )))))
                                           );
@@ -912,6 +928,25 @@ Below code handles the portrait and landscape feature of the app, top we have th
                                                           SizedBox(
                                                             height: 8.0,
                                                           ),
+                                                          InkWell(
+                                                              onTap: (){
+                                                                avatars.shuffle();
+                                                                names.shuffle();
+
+                                                              },
+                                                              child: Container(
+                                                                // padding: EdgeInsets.all(5),
+                                                                  child: Align(
+                                                                      alignment: Alignment.center,
+                                                                      child: Flexible(
+                                                                          child: Icon(
+                                                                            Icons.shuffle,
+                                                                            size: 25,
+                                                                            color: Colors.white,
+                                                                          ))))),
+                                                          SizedBox(
+                                                            height: 5.0,
+                                                          ),
                                                           Padding(
                                                               padding: EdgeInsets.only(
                                                                   bottom: MediaQuery.of(
@@ -920,9 +955,11 @@ Below code handles the portrait and landscape feature of the app, top we have th
                                                                       .bottom),
                                                               child: Row(
                                                                 children: [
+
                                                                   Expanded(
                                                                       flex: 3,
                                                                       child: TextField(
+
                                                                         controller: _controllerComment,
                                                                         keyboardType:
                                                                         TextInputType
@@ -992,7 +1029,6 @@ Below code handles the portrait and landscape feature of the app, top we have th
                                                                               'Montserrat'),
                                                                         ),
                                                                         autofocus: true,
-                                                                        //controller: _newMediaLinkAddressController,
                                                                       )),
                                                                   SizedBox(
                                                                     width: 5,
@@ -1001,7 +1037,8 @@ Below code handles the portrait and landscape feature of the app, top we have th
                                                                 onTap: () {
 
                                                                   if(_controllerComment.text.toString()!=""){
-                                                                    data.add(_controllerComment.text.toString());
+                                                                    data.add(UserWithComment( names[0].toString(),_controllerComment.text,avatars[1].toString()));
+
                                                                     Navigator.pop(context);
                                                                     _controllerComment.clear();
                                                                   }else{
@@ -1137,17 +1174,6 @@ Below code handles the portrait and landscape feature of the app, top we have th
                                                             width: 2,
                                                           ),
 
-                                                          /*Expanded(
-                                  flex: 0,
-                                  child: GestureDetector(
-                                      onTap: (){
-                                        print("Emoji");
-                                        buildSticker();
-
-                                      },
-                                      child:Container(
-                                      padding: EdgeInsets.all(5),
-                                      child:Image.asset("assets/smile.png",height: 20,)))),*/
 
                                                           Expanded(
                                                               child: Container(
@@ -1184,6 +1210,7 @@ Below code handles the portrait and landscape feature of the app, top we have th
 
     );
   }
+}
 
 
 ```
